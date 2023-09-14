@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import= "bbs.BbsDAO" %>
+<%@ page import= "bbs.Bbs" %>
 <%@ page import= "java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id ="bbs" class = "bbs.Bbs" scope="page" />
-<jsp:setProperty name="bbs" property="bbsTitle" />
-<jsp:setProperty name="bbs" property="bbsContent" />
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +12,7 @@
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <title>JSP</title>
 </head>
-<body>
+<body> 
  	<%
  		PrintWriter script = response.getWriter();
  		String userID = null;
@@ -28,10 +26,35 @@
 			script.println("alert('Please log in')");
 			script.println("location.href = 'login.jsp'");
 			script.println("</script>");
+		}
+		 
+		
+
+		int bbsID = 0;
+		if(request.getParameter("bbsID") != null){
+			bbsID = Integer.parseInt(request.getParameter("bbsID"));
+			
+		}
+		
+		if(bbsID == 0){
+			script.println("<script>");
+			script.println("alert('This is an invalid post.')");
+			script.println("location.href = 'bbs.jsp'");
+			script.println("</script>");
+		}
+		
+		
+		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		if(!userID.equals(bbs.getUserID())){
+			script.println("<script>");
+			script.println("alert('There is no authority.')");
+			script.println("location.href = 'bbs.jsp'");
+			script.println("</script>");
 		}else{
 			
-			if(bbs.getBbsTitle() == null ||bbs.getBbsContent() == null){
-
+			if(request.getParameter("bbsTitle") == null ||request.getParameter("bbsContent") == null
+					|| request.getParameter("bbsTitle").equals("") || request.getParameter("bbsContent").equals("")
+			){
 	 			script.println("<script>");
 	 			script.println("alert('There are missing entries.')");
 	 			script.println("history.back()");
@@ -40,31 +63,24 @@
 			}else{
 				
 				BbsDAO bbsDAO = new BbsDAO();
-		 		int result = bbsDAO.write(bbs.getBbsTitle(), userID, bbs.getBbsContent());
+		 		int result = bbsDAO.update(bbsID, request.getParameter("bbsTitle"), request.getParameter("bbsContent"));
 
 		 		if(result == -1){
 		 			script.println("<script>");
-		 			script.println("alert('Writing failed.')");
+		 			script.println("alert('Updating failed.')");
 		 			script.println("history.back()");
 		 			script.println("</script>");
 		 			
 		 		}else{
-		 			
-		 		 
-		  			script.println("<script>");
+					script.println("<script>");
 		  			script.println("location.href = 'bbs.jsp'");
 	 	 			script.println("</script>");
 		 			
 		 		} 
 				
-			}
-			
-			
-			
+			}	
 		}
-		
-
- 		 
+		 
  	 
  	%>
 </body>

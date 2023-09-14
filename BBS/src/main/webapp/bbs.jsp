@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <link rel="stylesheet"   href="css/bootstrap.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>JSP</title>
 <style type="text/css">
 	a, a:hover{
 		color: #000000;
@@ -41,12 +41,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP게시판 웹사이트</a>
+			<a class="navbar-brand" href="main.jsp">JSP BBS</a>
 		</div>
 		<div class="collapse navbar-collaps" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">메인</a></li>
-				<li class="active"><a href="bbs.jsp">게시판</a></li>
+				<li><a href="main.jsp">MAIN</a></li>
+				<li class="active"><a href="bbs.jsp">LIST</a></li>
 			</ul>
 			<%
 				if(userID == null){
@@ -54,10 +54,10 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">접속하기<span class="caret"></span></a>
+						aria-expanded="false">MAIN<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
+						<li><a href="login.jsp">LOG IN</a></li>
+						<li><a href="join.jsp">SIGH UP</a></li>
 					</ul>
 				</li>
 			</ul>	
@@ -67,9 +67,9 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">회원관리<span class="caret"></span></a>
+						aria-expanded="false">MEMBER<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
+						<li><a href="logoutAction.jsp">LOG OUT</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -84,10 +84,10 @@
 			<table class= "table table-striped" style= "text-align: center; border: 1px solid #ddddd">
 				<thead>
 					<tr>
-						<th style="background-color: #eeeee; text-align: center;">번호</th>
-						<th style="background-color: #eeeee; text-align: center;">제목</th>
-						<th style="background-color: #eeeee; text-align: center;">작성자</th>
-						<th style="background-color: #eeeee; text-align: center;">작성일</th>
+						<th style="background-color: #eeeee; text-align: center;">NUMBER</th>
+						<th style="background-color: #eeeee; text-align: center;">TITLE</th>
+						<th style="background-color: #eeeee; text-align: center;">WRITER</th>
+						<th style="background-color: #eeeee; text-align: center;">DATE</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -110,11 +110,11 @@
 			<%
 				if(pageNumber != 1){
 			%>		
-				<a href="bbs.jsp?pageNumber=<%= pageNumber - 1 %>" class="btn btn-success btn-arrow-left">이전</a>
+				<a href="bbs.jsp?pageNumber=<%= pageNumber - 1 %>" class="btn btn-success btn-arrow-left">PRE</a>
 			<%		
 				} if(bbsDAO.nextPage(pageNumber +1 )){
 			%>		
-				<a href="bbs.jsp?pageNumber=<%= pageNumber + 1 %>" class="btn btn-success btn-arrow-left">다음</a>
+				<a href="bbs.jsp?pageNumber=<%= pageNumber + 1 %>" class="btn btn-success btn-arrow-left">NEXT</a>
 			<%		
 				}
 			%>

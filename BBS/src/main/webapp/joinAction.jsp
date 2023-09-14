@@ -15,7 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1">
-<title>JSP 게시판 웹 사이트</title>
+<title>JSP</title>
 </head>
 <body>
  	<%
@@ -28,7 +28,7 @@
 		
 		if(userID != null){
 			script.println("<script>");
-			script.println("alert('이미 로그인이 되어 있습니다.')");
+			script.println("alert('You are already logged in.')");
 			script.println("history.back()");
 			script.println("</script>");
 		}
@@ -37,7 +37,7 @@
  		if(user.getUserID() == null ||user.getUserPassword() == null ||user.getUserName()== null ||user.getUserGender()== null ||user.getUserEmail()== null ){
 
  			script.println("<script>");
- 			script.println("alert('입력이 안 된 사항이 있습니다.')");
+ 			script.println("alert('There are missing entries.')");
  			script.println("history.back()");
  			script.println("</script>");
  			
@@ -48,7 +48,7 @@
 
 	 		if(result == -1){
 	 			script.println("<script>");
-	 			script.println("alert('이미 존재하는 아이디입니다.')");
+	 			script.println("alert('It is already has an ID.')");
 	 			script.println("history.back()");
 	 			script.println("</script>");
 	 			

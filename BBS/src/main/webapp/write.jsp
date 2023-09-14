@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <link rel="stylesheet"   href="css/bootstrap.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>JSP</title>
 </head>
 <body>
 
@@ -27,12 +27,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP게시판 웹사이트</a>
+			<a class="navbar-brand" href="main.jsp">JSP BBS</a>
 		</div>
 		<div class="collapse navbar-collaps" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">메인</a></li>
-				<li class="active"><a href="bbs.jsp">게시판</a></li>
+				<li><a href="main.jsp">MAIN</a></li>
+				<li class="active"><a href="bbs.jsp">LIST</a></li>
 			</ul>
 			<%
 				if(userID == null){
@@ -40,10 +40,10 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">접속하기<span class="caret"></span></a>
+						aria-expanded="false">CONNECT<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
+						<li><a href="login.jsp">LOG IN</a></li>
+						<li><a href="join.jsp">SIGN UP</a></li>
 					</ul>
 				</li>
 			</ul>	
@@ -53,9 +53,9 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">회원관리<span class="caret"></span></a>
+						aria-expanded="false">MEMBER<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
+						<li><a href="logoutAction.jsp">LOG OUT</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -71,19 +71,19 @@
 				<table class= "table table-striped" style= "text-align: center; border: 1px solid #ddddd">
 					<thead>
 						<tr>
-							<th colspan="2" style="background-color: #eeeee; text-align: center;">게시판 글쓰기 양식</th>
+							<th colspan="2" style="background-color: #eeeee; text-align: center;">WRITING</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글제목" name="bbsTitle" maxlength="50" ></td>
+							<td><input type="text" class="form-control" placeholder="TITLE" name="bbsTitle" maxlength="50" ></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="글내용" name="bbsContent" maxlength="2048" ></textarea></td>
+							<td><textarea class="form-control" placeholder="CONTENT" name="bbsContent" maxlength="2048" ></textarea></td>
 						</tr>
 					</tbody>
  				</table>
- 				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+ 				<input type="submit" class="btn btn-primary pull-right" value="WRITE">
  				
 			</form>	 
 		</div>
